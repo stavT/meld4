@@ -736,7 +736,7 @@ elif st.session_state.current_step == 7:
     st.subheader("Current Configuration")
     toml_string = tomli_w.dumps(st.session_state.config)
     st.code(toml_string, language="toml")
-
+    temp = None
     if st.button("Test Configuration"):
         progress = st.progress(0.0)
         test_results = {}
@@ -744,6 +744,8 @@ elif st.session_state.current_step == 7:
         def create_chat_model(model_type: str):
             vendor_name = st.session_state.config["vendor"][f"{model_type}_model"]
             model_name = st.session_state.config[vendor_name][f"{model_type}_model"]
+            temp = vendor_name, model_name
+            print(temp)
 
             if vendor_name == "openai":
                 return ChatOpenAI(model=model_name)
@@ -885,6 +887,8 @@ elif st.session_state.current_step == 7:
 
         # Display results in a table
         st.subheader("Test Results")
+        print(temp)
+        st.write(temp)
 
         # Create a two-column table using streamlit columns
         col1, col2 = st.columns(2)

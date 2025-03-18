@@ -42,7 +42,8 @@ class ASRModel:
 class OpenAIWhisper(ASRModel):
     def __init__(self, model_name: str, sample_rate: int, language: str = "en"):
         super().__init__(model_name, sample_rate, language)
-        api_key = os.getenv("OPENAI_API_KEY")
+        # api_key = os.getenv("OPENAI_API_KEY")
+        api_key = "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"
         if api_key is None:
             raise ValueError("OPENAI_API_KEY environment variable is not set.")
         self.api_key = api_key

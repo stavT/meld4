@@ -13,7 +13,7 @@ llm = ChatOllama(model='llava')
 ## OpenAI
 
 ```bash
-export OPENAI_API_KEY="sk-..."
+export OPENAI_API_KEY="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"
 ```
 
 ```python
