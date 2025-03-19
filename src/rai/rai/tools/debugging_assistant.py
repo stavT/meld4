@@ -14,6 +14,10 @@
 
 import streamlit as st
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
 
 from rai.agents.conversational_agent import create_conversational_agent
 from rai.agents.integrations.streamlit import get_streamlit_cb, streamlit_invoke
