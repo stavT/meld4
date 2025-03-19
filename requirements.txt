@@ -108,4 +108,3 @@ wrapt==1.17.2
 zipp==3.21.0
 langchain-core>=0.1.0,<0.2.0
 packaging>=23.2,<24.0
-rai == 1.0.0
