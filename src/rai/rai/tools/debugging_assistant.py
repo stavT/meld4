@@ -17,10 +17,19 @@ from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 import sys
 import os
 
-print("Current Directory:", os.getcwd())  # Check where Streamlit runs the script
-print("Script Path:", os.path.abspath(__file__))
+# Get the directory of the script
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+# Move up to `/mount/src/meld4/src`, where `rai` is located
+project_root = os.path.abspath(os.path.join(script_dir, "../../.."))
+
+# Add to Python path if not already present
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)  # Ensure it is the first entry
+
+# Debugging: Print sys.path
+print("Updated sys.path:", sys.path)
+
 
 from rai.agents.conversational_agent import create_conversational_agent
 from rai.agents.integrations.streamlit import get_streamlit_cb, streamlit_invoke
