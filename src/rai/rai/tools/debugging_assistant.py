@@ -17,18 +17,13 @@ from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 import sys
 import os
 
-# Get the directory of the script
-script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Move up to `/mount/src/meld4/src`, where `rai` is located
-project_root = os.path.abspath(os.path.join(script_dir, "../../.."))
 
-# Add to Python path if not already present
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)  # Ensure it is the first entry
+sys.path.append(os.path.abspath("/mount/src/meld4/src/rai"))  # Add this
 
-# Debugging: Print sys.path
-print("Updated sys.path:", sys.path)
+# Debug
+import rai
+print("RAI package path:", rai.__file__)  # Ensure it resolves correctly
 
 
 from rai.agents.conversational_agent import create_conversational_agent
