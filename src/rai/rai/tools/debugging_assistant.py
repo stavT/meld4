@@ -17,6 +17,9 @@ from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 import sys
 import os
 
+print("Current Directory:", os.getcwd())  # Check where Streamlit runs the script
+print("Script Path:", os.path.abspath(__file__))
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
 
 from rai.agents.conversational_agent import create_conversational_agent
